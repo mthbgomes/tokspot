@@ -8,6 +8,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth; /*Deixar assim?*/
 }
 
 .navbar{
@@ -28,8 +29,6 @@
 
 .navbar .container img{
     display: block;
-    /* width: 200px;
-    height: auto; */
 }
 
 .navbar .container .nav-links{
@@ -41,11 +40,22 @@
     list-style: none;
 }
 
-.navbar .container a:hover {
+.a-link{
+    text-align: center;
+    line-height: 45px;
+    color: #000;
+    text-decoration: none;
+}
+
+.a-link:hover {
     color: var(--primary-color);
 }
 
-.navbar .container .btn-login{
+.btn-white{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    line-height: 45px;
     border: solid var(--primary-color) 1px;
     background-color: var(--secondary-color);
     color: var(--primary-color);
@@ -56,32 +66,25 @@
     cursor: pointer;
 }
 
-.navbar .container .btn-login:hover{
+.btn-white:hover{
     border: none;
     background-color: var(--primary-color);
     color: #fff;
 }
 
-.navbar .container a {
-    text-align: center;
-    line-height: 45px;
-    color: #000;
-    text-decoration: none;
-}
-
-.hero{
+.fullpage{
     display: flex;
     justify-content: center;
     height: 100vh;
     background-color: var(--primary-color);
 }
 
-.hero .container{
+.fullpage .container{
     display: flex;
     align-items: center;
 }
 
-.hero .container .left-col{
+.fullpage .container .left-col{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -92,57 +95,70 @@
 }
 
 
-.hero .container h1{
+.fullpage .container .hero-title{
     font-size: 3.5rem;
     font-weight: 700;
 }
 
-.hero .container p{
+.fullpage .container p{
     max-width: 80%;
     font-size: 1.5rem;
     text-align: justify;
 }
 
-.hero .container .left-col span{
+.fullpage .container .left-col span{
     padding: 0 8px;
     color: var(--primary-color);
     font-weight: 700;
     box-shadow: inset 0 2rem var(--secondary-color);
 }
 
-.hero .container img{
+.fullpage .container .hero-img{
     width: 37rem;
     height: auto;
     box-shadow: 3px 6px 8px rgba(0,0,0,0.3);
     border-radius: 12px;
 }
 
-.hero .container .hero-cta .primary-cta{
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    font-weight: 700;
-    width: 180px;
-    height: 45px;
-    border-radius: 22px;
-    cursor: pointer;
+.fullpage .container .col{
+    flex-direction: column;
 }
-
-.hero .container .hero-cta .primary-cta:hover{
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);    
-}
-
-
-.hero .container .hero-cta a{
-    text-decoration: none;
-    text-align: center;
-    line-height: 45px;
-}
-
+ 
 .about .container .grid{
     background-color: #fff;
     height: 100vh;
+}
+
+.fullpage .container .logo{
+    width: 20rem;
+    height: auto;
+}
+
+.container.col{
+    flex-direction: column;
+}
+
+.form-box{
+    padding: 30px;
+    margin: auto 0;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.form-box h1{
+    margin-bottom: 30px;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+.login-form input{
+    margin-bottom: 30px;
+}
+
+.btn-white input{
+    margin: 0 auto;
 }
