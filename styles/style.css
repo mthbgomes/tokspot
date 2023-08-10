@@ -72,6 +72,10 @@
     color: #fff;
 }
 
+.btn-border:hover{
+    border: 1px solid var(--secondary-color);
+}
+
 .fullpage{
     display: flex;
     justify-content: center;
