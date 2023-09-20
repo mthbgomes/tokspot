@@ -9,56 +9,29 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth; /*Deixar assim?*/
+    scroll-behavior: smooth;
 }
 
-.navbar{
-    display: flex;
-    position: fixed;
-    width: 100vw;
-    height: 80px;
-    background-color: var(--secondary-color);
-    border-bottom: 1px solid var(--primary-color);
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+.bg-primary-color{
+    background-color: var(--primary-color);
 }
 
-.navbar .container{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 30px;
+.border-primary-color{
+    border-bottom: 2px solid var(--primary-color)
 }
 
-.navbar .container img{
-    display: block;
-}
-
-.navbar .container .nav-links{
-    display: flex;
-    gap: 48px;
-}
-
-.navbar .container .nav-links {
-    list-style: none;
-}
-
-li.current{
-    border-bottom: 3px solid var(--primary-color);
-}
-
-.a-link{
+.on-hover-link{
     text-align: center;
     line-height: 45px;
     color: #000;
     text-decoration: none;
 }
 
-.a-link:hover {
-    color: var(--primary-color);
+.on-hover-link:hover{
+    border-bottom: 2px solid var(--primary-color);
 }
 
-.btn-white{
+.btn-primary-color{
     display: inline-block;
     text-align: center;
     text-decoration: none;
@@ -73,159 +46,24 @@ li.current{
     cursor: pointer;
 }
 
-.btn-white:hover{
+.btn-primary-color:hover{
     border: none;
     background-color: var(--primary-color);
     color: #fff;
 }
 
-.btn-border:hover{
-    border: 1px solid var(--secondary-color);
-}
-
-.fullpage{
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--primary-color);
-}
-
-.fullpage .container{
-    display: flex;
-    align-items: center;
-}
-
-.fullpage .container .left-col{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 300px;
-    width: 50vw;
-    color: #fff;
-    margin-right: 40px;
-}
-
-
-.fullpage .container .hero-title{
-    font-size: 3.5rem;
-    font-weight: 700;
-}
-
-.fullpage .container p{
-    max-width: 80%;
-    font-size: 1.5rem;
-    text-align: justify;
-}
-
-.fullpage .container .left-col span{
-    padding: 0 8px;
-    color: var(--primary-color);
-    font-weight: 700;
-    box-shadow: inset 0 2rem var(--secondary-color);
-}
-
-.fullpage .container .hero-img{
-    width: 37rem;
-    height: auto;
-    box-shadow: 3px 6px 8px rgba(0,0,0,0.3);
-    border-radius: 12px;
-}
-
-.fullpage .container .col{
-    flex-direction: column;
-}
- 
-.about .container .grid{
-    background-color: #fff;
-    height: 100vh;
-}
-
-.fullpage .container .logo{
-    width: 20rem;
-    height: auto;
-}
-
-.container.col{
-    flex-direction: column;
-}
-
-.form-box{
-    padding: 30px;
-    margin: auto 0;
-    background-color: white;
-    border-radius: var(--border-radius-default);
-}
-
-.form-box h1{
-    margin-bottom: 30px;
-}
-
-.login-form{
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-}
-
-.login-form input{
-    margin-bottom: 30px;
-}
-
-.btn-white.btn-submit{
-    margin: 0 auto;
-}
-
-.kanban-page {
+.hero{
     background-color: var(--secondary-color);
-    overflow-x: scroll; /* Horizontal scroll */
-    overflow-y: hidden; /* Hide vertical scroll */
+}
+
+.hero-img{
     width: 100%;
-    height: 100vh;
-    display: flex; /* Add flex display */
-    align-items: center;
-    justify-content: start;
 }
 
-.kanban-wrapper {
-    display: flex;
-    padding-left: 20px;
+.hero-title h1{
+    color: var(--primary-color);
 }
 
-.kanban{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    flex-shrink: 0;
-    width: 250px;
-    height: 700px;
-    border-radius: var(--border-radius-default);
-    background-color: #ebebeb;
-    margin-right: 10px;
-    overflow: hidden;
-    overflow-y: scroll;
-}
-
-.kanban-title{
-    width: 250px;
-    height: 48px;
-    line-height: 48px;
-    text-align: center;
-    background-color: white;
-    border-bottom: 1px solid var(--primary-color);
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    font-size: 18px;
-    margin-bottom: 12px;
-    position: sticky;
-    top: 0;
-}
-
-.kanban-card{
-    padding-top: 100px;
-    flex-shrink: 0;
-    width: 90%;
-    height: 80px;
-    background-color: white;
-    border-radius: var(--border-radius-default);
-    margin-bottom: 12px;
+.hero-text h2{
+    color: (--primary-color);
 }
