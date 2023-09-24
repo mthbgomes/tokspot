@@ -1,6 +1,6 @@
 :root {
   --primary-color: #2992cc;
-  --secondary-color: #f7fbfe;
+  --secondary-color: #e9eef1;
   --default-box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
     rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
     rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
@@ -112,16 +112,30 @@
 
 .register-title {
   color: white;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .register-text {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .login-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+
+.pw-recover{
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.pw-recover:hover{
+    color: #1c668e;
+}
+
+.card.bg-light {
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 /* Media Queries */
