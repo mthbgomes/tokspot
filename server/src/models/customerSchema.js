@@ -22,8 +22,8 @@ const customerSchema = new Schema(
       match: [/\S+@\S+\.\S+/, "Digite um e-mail váldio"],
       lowercase: true,
     },
-    opportunity: [String],
-    task,
+    opportunities: [String],
+    tasks: [String],
   },
   { timestamps: true }
 );
