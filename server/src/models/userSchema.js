@@ -25,7 +25,7 @@ const userSchema = new Schema(
     image: String,
     company: { type: String, required: true },
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
 userSchema.plugin(uniqueValidtor, { message: "Este e-mail já está em uso." });

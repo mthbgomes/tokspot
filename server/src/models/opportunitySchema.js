@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const opportunitySchema = new Schema(
   {
     _id: Schema.Types.ObjetcId,
-    name: {
+    title: {
       type: String,
       required: true,
     },
