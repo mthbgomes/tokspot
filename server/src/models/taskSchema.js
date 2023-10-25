@@ -4,7 +4,6 @@ const { Schema } = mongoose;
 
 const taskSchema = new Schema(
   {
-    _id: Schema.Types.ObjetcId,
     title: {
       type: String,
       required: true,

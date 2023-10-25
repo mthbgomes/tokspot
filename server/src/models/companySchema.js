@@ -4,7 +4,6 @@ const { Schema } = mongoose;
 
 const companySchema = new Schema(
   {
-    _id: Schema.Types.ObjetcId,
     name: {
       type: String,
       required: true,
