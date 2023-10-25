@@ -1,16 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-
-dotenv.config();
-
-const app = express();
-
-app.use(cors());
-
-app.use(express.json());
-
+import user from "./routes/userRoute.js";
 import db from "./config/database.js";
 db.connect();
-
+dotenv.config();
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use("/user", user);
 export default app;
