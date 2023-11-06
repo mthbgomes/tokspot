@@ -1,5 +1,4 @@
 import User from "../models/userSchema.js";
-// import axios from "axios";
 
 const createUser = async (req, res) => {
   try {
@@ -8,7 +7,6 @@ const createUser = async (req, res) => {
 
     res.status(200).json({
       message: "Usuário criado com sucesso.",
-      savedUser,
     });
   } catch (err) {
     res.status(500).json({
