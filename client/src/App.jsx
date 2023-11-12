@@ -1,19 +1,22 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LinkProvider } from "../src/contexts/LinkProvider.jsx";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
-import "./styles/normalize.css";
-import "./styles/main.css";
 import Login from "./components/pages/Login";
-import "./styles/main.css";
+import Home from "./components/pages/Home.jsx";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
+      <LinkProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </LinkProvider>
     </div>
   );
 }
