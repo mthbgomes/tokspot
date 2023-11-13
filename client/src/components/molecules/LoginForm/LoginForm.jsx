@@ -21,12 +21,12 @@ const LoginForm = ({
 }) => {
   return (
     <div>
-      <Form onSubmit={onLogin}>
-        <FloatingLabel controlId="email" label="Endereço de email">
+      <Form className="row g-2" onSubmit={onLogin}>
+        <FloatingLabel controlId="email" label="Email">
           <Input
             type="email"
             value={email}
-            placeholder="nome@exemplo.com.br"
+            placeholder="email"
             onChange={(ev) => setEmail(ev.target.value)}
           />
           <span>{emailError}</span>
@@ -35,18 +35,23 @@ const LoginForm = ({
           <Input
             type="password"
             value={password}
-            placeholder="••••••"
+            placeholder="senha"
             onChange={(ev) => setPassword(ev.target.value)}
           />
           <span>{passwordError}</span>
         </FloatingLabel>
-        <Checkbox label="Lembrar de mim" controlId="rememberMe" />
-        <Link to="/login/recuperar_senha">Esqueceu sua senha?</Link>
-        <Button type="submit" className="btn-secondary-color">
+        <Checkbox
+          className="d-inline pe-1"
+          label="Lembrar de mim"
+          controlId="rememberMe"
+        />
+        <Button type="submit" className="p-0 m-0 btn-primary-color">
           Entrar
         </Button>
       </Form>
-      <Link to="/cadastro">Crie sua conta</Link>
+      <Link to="/login/recuperar_senha" className="pw-recover">
+        Esqueceu sua senha?
+      </Link>
     </div>
   );
 };

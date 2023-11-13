@@ -26,7 +26,7 @@
 
 
 
-.btn-primary-color {
+.btn-primary-color, .btn-primary-color.btn {
   display: inline-block;
   text-align: center;
   text-decoration: none;
@@ -55,7 +55,7 @@
   border-bottom: 2px solid var(--secondary-color);
 }
 
-.btn-secondary-color, .btn-secondary-color.btn {
+.btn-secondary-color {
   display: inline-block;
   text-align: center;
   text-decoration: none;
@@ -70,7 +70,7 @@
   cursor: pointer;
 }
 
-.btn-secondary-color:hover, .btn-secondary-color.btn:hover {
+.btn-secondary-color:hover {
   border: none;
   background-color: var(--secondary-color);
   color: var(--primary-color);

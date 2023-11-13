@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 
 const LinkContext = createContext();
 
-const LinkProvider = ({ children }) => {
+const LinkContextProvider = ({ children }) => {
   const [homeLinks, setHomeLinks] = useState([
     { to: "/", label: "Home" },
     { to: "#quems-somos", label: "Quem somos" },
@@ -15,6 +15,7 @@ const LinkProvider = ({ children }) => {
     { to: "/oportunidades", label: "Oportunidades" },
     { to: "/contatos", label: "Contatos" },
     { to: "/tarefas", label: "Tarefas" },
+    { to: "/admin", label: "Configurações" },
   ]);
 
   return (
@@ -29,4 +30,4 @@ const useLinkContext = () => {
   return useContext(LinkContext);
 };
 
-export { LinkProvider, useLinkContext };
+export { LinkContextProvider, useLinkContext };

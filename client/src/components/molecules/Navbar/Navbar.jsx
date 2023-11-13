@@ -6,7 +6,7 @@ import "../../../styles/global.css";
 import "./Navbar.css";
 import logoImage from "../../../images/TokSpot.png";
 
-const NavigationBar = ({ links, linkText }) => {
+const NavigationBar = ({ links, btnText }) => {
   return (
     <Navbar
       expand="lg"
@@ -25,7 +25,7 @@ const NavigationBar = ({ links, linkText }) => {
           ))}
         </Nav>
         <Link to="/login" className="btn-primary-color">
-          {linkText}
+          {btnText}
         </Link>
       </Navbar.Collapse>
     </Navbar>
