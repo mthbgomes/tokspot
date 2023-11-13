@@ -5,7 +5,7 @@ import { LinkContextProvider } from "../src/contexts/LinkContext.jsx";
 
 import Login from "./components/pages/Login";
 import Home from "./components/pages/Home.jsx";
-import Dashboard from "./components/pages/Dashboard.jsx";
+import Oportunidades from "./components/pages/Oportunidades.jsx";
 import { KanbanContextProvider } from "./contexts/KanbanContext.jsx";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/" element={<Home />} />
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/oportunidades" element={<Oportunidades />} />
             </Routes>
           </BrowserRouter>
         </KanbanContextProvider>

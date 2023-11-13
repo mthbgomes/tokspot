@@ -59,6 +59,12 @@ const KanbanContextProvider = ({ children }) => {
           value: "R$ 42.000",
           cardId: "7",
         },
+        {
+          title: "Oportunidade 3",
+          contato: "João Santos",
+          value: "R$ 42.000",
+          cardId: "8",
+        },
       ],
     },
     {

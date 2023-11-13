@@ -6,7 +6,7 @@ import { useKanbanContext } from "../../contexts/KanbanContext";
 import { DragDropContext } from "react-beautiful-dnd";
 import onDragEnd from "../../handlers/handleOnDragEnd.jsx";
 
-export default function Dashboard() {
+export default function Oportunidades() {
   const { dashboardLinks } = useLinkContext();
 
   const { kanbanData, setKanbanData } = useKanbanContext();

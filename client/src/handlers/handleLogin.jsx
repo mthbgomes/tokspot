@@ -33,7 +33,7 @@ const handleLogin = async (
     }
 
     console.log("Autenticação bem-sucedida!");
-    navigate("/dashboard"); // ATENÇÃO: REMOVER APÓS IMPLEMENTAR
+    navigate("/oportunidades"); // ATENÇÃO: REMOVER APÓS IMPLEMENTAR
     // Lógica de autenticação aqui...
   } catch (err) {
     console.log(err.message);
