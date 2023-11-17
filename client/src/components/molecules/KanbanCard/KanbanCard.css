@@ -1,0 +1,4 @@
+.kanban-card{
+    max-height: 15%;
+    box-shadow: var(--default-box-shadow)
+}

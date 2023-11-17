@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../../styles/global.css";
+import "./KanbanCard.css";
 import { Draggable } from "react-beautiful-dnd";
 
 const KanbanCard = ({ card, index }) => {
@@ -8,7 +9,7 @@ const KanbanCard = ({ card, index }) => {
     <Draggable draggableId={card.cardId} index={index}>
       {(provided) => (
         <div
-          className="card shadow-sm mb-2 kanban-card"
+          className="card mb-2 kanban-card"
           cardid={card.cardId}
           key={card.cardId}
           ref={provided.innerRef}
@@ -31,4 +32,5 @@ const KanbanCard = ({ card, index }) => {
   );
 };
 
+////TODO: SE FOR TASK, TIPO SE FOR OPORTUNIDADE CONTATO
 export default KanbanCard;

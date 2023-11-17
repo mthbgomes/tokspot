@@ -10,7 +10,7 @@ const LinkContextProvider = ({ children }) => {
     { to: "#planos", label: "Planos" },
   ]);
 
-  const [dashboardLinks, setDashboardLinks] = useState([
+  const [loggedInLinks, setloggedInLinks] = useState([
     { to: "/dashboard", label: "Dashboard" },
     { to: "/oportunidades", label: "Oportunidades" },
     { to: "/contatos", label: "Contatos" },
@@ -20,7 +20,7 @@ const LinkContextProvider = ({ children }) => {
 
   return (
     <LinkContext.Provider
-      value={{ homeLinks, setHomeLinks, dashboardLinks, setDashboardLinks }}
+      value={{ homeLinks, setHomeLinks, loggedInLinks, setloggedInLinks }}
     >
       {children}
     </LinkContext.Provider>

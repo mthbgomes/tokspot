@@ -6,21 +6,26 @@ import { LinkContextProvider } from "../src/contexts/LinkContext.jsx";
 import Login from "./components/pages/Login";
 import Home from "./components/pages/Home.jsx";
 import Oportunidades from "./components/pages/Oportunidades.jsx";
-import { KanbanContextProvider } from "./contexts/KanbanContext.jsx";
+import Tasks from "./components/pages/Tasks.jsx";
+import { DealsContextProvider } from "./contexts/DealsContext.jsx";
+import { TasksContextProvider } from "./contexts/TasksContext.jsx";
 
 function App() {
   return (
     <div className="App">
       <LinkContextProvider>
-        <KanbanContextProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/" element={<Home />} />
-              <Route path="/oportunidades" element={<Oportunidades />} />
-            </Routes>
-          </BrowserRouter>
-        </KanbanContextProvider>
+        <DealsContextProvider>
+          <TasksContextProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/oportunidades" element={<Oportunidades />} />
+                <Route path="/tarefas" element={<Tasks />} />
+              </Routes>
+            </BrowserRouter>
+          </TasksContextProvider>
+        </DealsContextProvider>
       </LinkContextProvider>
     </div>
   );
