@@ -1,14 +1,22 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import db from "./config/database.js";
+
+import deal from "./routes/dealRoute.js";
+import kanbanColumn from "./routes/kanbanColumnRoute.js";
 import user from "./routes/userRoute.js";
 import auth from "./routes/authRoute.js";
-import db from "./config/database.js";
+
 db.connect();
 dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use("/user", user);
-app.use("/", auth);
+
+app.use("/api/user", user);
+app.use("/api/auth", auth);
+app.use("/api/deal", deal);
+app.use("/api/kanbanColumn", kanbanColumn);
+
 export default app;

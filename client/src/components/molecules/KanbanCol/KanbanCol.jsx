@@ -21,15 +21,15 @@ const KanbanCol = ({ kanbanCol, columnIndex, children }) => {
           index={columnIndex}
         >
           {(provided) => (
-            //OVERFLOW AUTO ESTÁ QUEBRANDO A SOMBRA
             <div
-              className="card-body kanban-card-container overflow-y-scroll custom-scrollbar bg-secondary-color m-0 pb-0 pt-0"
+              className="card-body kanban-card-container overflow-y-auto overflow-x-hidden custom-scrollbar bg-secondary-color m-0 pb-0 pt-0"
               id={kanbanCol.columnId}
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
               {children}
               {provided.placeholder}
+              <div className="card-holder"></div>
             </div>
           )}
         </Droppable>

@@ -13,7 +13,6 @@ const onDragEnd = (result, kanbanData, setKanbanData) => {
   const sourceColumn = updatedKanbanData.find(
     (column) => column.columnId === result.source.droppableId
   );
-  console.log(result.destination.droppableId);
 
   // Remove o cartão da coluna de origem
   const draggedCard = sourceColumn.cards.splice(result.source.index, 1)[0];

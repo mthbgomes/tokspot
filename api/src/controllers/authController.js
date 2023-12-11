@@ -7,7 +7,7 @@ const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!(email && password)) {
-      res.status(400).send("All input is required");
+      return res.status(400).send("All input is required");
     }
     const user = await User.findOne({ email });
     if (!user) {
@@ -33,10 +33,10 @@ const loginUser = async (req, res) => {
       })
       //TODO: voltar com o secure: true quando der deploy (para garantir HTTPS) secure: true,
     );
-    res.status(200).json("Authentication succeeded.");
+    return res.status(200).json("Authentication succeeded.");
   } catch (error) {
     console.error("Erro no login:", error);
-    res.status(500).json({ error: "Authentication failed." });
+    return res.status(500).json({ error: "Authentication failed." });
   }
 };
 

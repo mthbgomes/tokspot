@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LoginForm from "../molecules/LoginForm/LoginForm.jsx";
+import LoginForm from "../molecules/Forms/LoginForm/LoginForm.jsx";
 import Link from "../atoms/Link.jsx";
 import { useNavigate } from "react-router-dom"; // remover quando implementar auth
 

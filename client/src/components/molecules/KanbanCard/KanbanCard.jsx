@@ -4,26 +4,26 @@ import "../../../styles/global.css";
 import "./KanbanCard.css";
 import { Draggable } from "react-beautiful-dnd";
 
-const KanbanCard = ({ card, index }) => {
+const KanbanCard = ({ kanbanCard, index }) => {
   return (
-    <Draggable draggableId={card.cardId} index={index}>
+    <Draggable draggableId={kanbanCard.cardId} index={index}>
       {(provided) => (
         <div
           className="card mb-2 kanban-card"
-          cardid={card.cardId}
-          key={card.cardId}
+          cardid={kanbanCard.cardId}
+          key={kanbanCard.cardId}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
           <div className="card-body p-2">
             <div className="card-title lh-1">
-              <p className="fst-italic">{card.title}</p>
+              <p className="fst-italic">{kanbanCard.dealTitle}</p>
             </div>
-            <p className="lh-1">Contato: {card.contato}</p>
+            <p className="lh-1">Contato: {kanbanCard.contact}</p>
             <p className="lh-1 mb-0">
               Valor:
-              <span> {card.value}</span>
+              <span> {kanbanCard.dealValue}</span>
             </p>
           </div>
         </div>
@@ -32,5 +32,5 @@ const KanbanCard = ({ card, index }) => {
   );
 };
 
-////TODO: SE FOR TASK, TIPO SE FOR OPORTUNIDADE CONTATO
+////TODO: CORPO DO CARD: SE FOR TASK = TIPO DA TASK, SE FOR OPORTUNIDADE = CONTATO ASSOCIADO
 export default KanbanCard;

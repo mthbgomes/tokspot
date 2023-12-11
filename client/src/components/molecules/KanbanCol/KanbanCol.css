@@ -9,7 +9,9 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-    background-color: var(--secondary-color);
+      background-color: #9a9d9e;
+      border-radius: 4px;
+      transition: all 
 }
 
 .column-title{
@@ -30,4 +32,8 @@
     border: none;
     box-shadow: var(--default-box-shadow);
     margin: 0px 12px 12px 0px;
+}
+
+.card-holder{
+    padding: 10px 0px;
 }
