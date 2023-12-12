@@ -12,18 +12,14 @@ const dealSchema = new Schema(
       type: String,
       required: true,
     },
-    owner: {
-      type: String,
-      required: true,
-    },
     dealValue: {
       type: String,
     },
-    description: {
+    dealDescription: {
       type: String,
       required: true,
     },
-    stage: {
+    selectedStage: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "kanbanColumn",
       required: true,

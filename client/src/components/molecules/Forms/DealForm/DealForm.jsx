@@ -14,16 +14,19 @@ const DealForm = ({
   dealTitle,
   setDealTitle,
   stages,
-  setStages,
+  selectedStage,
+  setSelectedStage,
   contact,
   setContact,
-  value,
-  setValue,
+  dealValue,
+  setDealValue,
+  dealDescription,
+  setDealDescription,
 }) => {
   const [formValid, setFormValid] = useState(true);
   const handleValidation = () => {
     const isFormValid =
-      dealTitle.trim() !== "" && contact.trim() !== "" && value !== "";
+      dealTitle.trim() !== "" && contact.trim() !== "" && dealValue !== "";
     setFormValid(isFormValid);
   };
 
@@ -35,9 +38,10 @@ const DealForm = ({
       handleSubmit(
         {
           dealTitle,
-          stages,
+          selectedStage,
           contact,
-          value,
+          dealValue,
+          dealDescription,
         },
         "http://localhost:3001/api/deal/create",
         "POST",
@@ -63,13 +67,21 @@ const DealForm = ({
       </Form.Group>
       <Form.Group controlId="dealStage">
         <Form.Label className="mb-0">Estágio</Form.Label>
-        <Form.Select className="mb-2">
+        <Form.Control
+          as="select"
+          value={selectedStage}
+          onChange={(ev) => {
+            setSelectedStage(ev.target.value);
+          }}
+          className="mb-2"
+        >
+          <option value="-">-</option>
           {stages.map((stage, stageIndex) => (
             <option key={stageIndex} value={stage}>
               {stage}
             </option>
           ))}
-        </Form.Select>
+        </Form.Control>
       </Form.Group>
       <Form.Group controlId="dealContact">
         <Form.Label className="mb-0">Contato</Form.Label>
@@ -90,7 +102,18 @@ const DealForm = ({
           prefix="R$ "
           disableAbbreviations="true"
           className="form-control mb-2"
-          onValueChange={(value) => setValue(value)}
+          onValueChange={(dealValue) => setDealValue(dealValue)}
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label className="mb-0">Descrição</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={3}
+          value={dealDescription}
+          onChange={(ev) => {
+            setDealDescription(ev.target.value);
+          }}
         />
       </Form.Group>
       {!formValid && (

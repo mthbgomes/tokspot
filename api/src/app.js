@@ -17,6 +17,6 @@ app.use(express.json());
 app.use("/api/user", user);
 app.use("/api/auth", auth);
 app.use("/api/deal", deal);
-app.use("/api/kanbanColumn", kanbanColumn);
+app.use("/api/kanbancolumn", kanbanColumn);
 
 export default app;

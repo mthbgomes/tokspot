@@ -12,8 +12,9 @@ const Kanban = ({ kanbanData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [dealTitle, setDealTitle] = useState("");
   const [contact, setContact] = useState("");
-  const [value, setValue] = useState("");
-  const [stages, setStages] = useState([]);
+  const [value, setDealValue] = useState("");
+  const [selectedStage, setSelectedStage] = useState("");
+  const [dealDescription, setDealDescription] = useState("");
 
   const handleShowModal = () => {
     setIsOpen(!isOpen);
@@ -22,8 +23,8 @@ const Kanban = ({ kanbanData }) => {
   const resetForm = () => {
     setDealTitle("");
     setContact("");
-    setValue("");
-    setStages([]); // Zera o array de stages se for utilizado
+    setDealValue("");
+    setDealDescription("");
   };
 
   return (
@@ -66,13 +67,17 @@ const Kanban = ({ kanbanData }) => {
           modalTitle={"Nova Oportunidade"}
         >
           <DealForm
-            stages={kanbanData.map((kanbanCol, columnIndex) => kanbanCol.title)}
             dealTitle={dealTitle}
             setDealTitle={setDealTitle}
+            stages={kanbanData.map((kanbanCol, columnIndex) => kanbanCol.title)}
+            selectedStage={selectedStage}
+            setSelectedStage={setSelectedStage}
             contact={contact}
             setContact={setContact}
             value={value}
-            setValue={setValue}
+            setDealValue={setDealValue}
+            dealDescription={dealDescription}
+            setDealDescription={setDealDescription}
           />
         </CenteredModal>
       </div>
