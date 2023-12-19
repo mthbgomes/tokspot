@@ -13,7 +13,7 @@ const dealSchema = new Schema(
       required: true,
     },
     dealValue: {
-      type: String,
+      type: Number,
     },
     dealDescription: {
       type: String,

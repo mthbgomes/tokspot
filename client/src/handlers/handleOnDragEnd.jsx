@@ -1,32 +1,52 @@
-const onDragEnd = (result, kanbanData, setKanbanData) => {
-  // Verifica se houve uma queda em uma área de destino válida
+const onDragEnd = (result, kanbanColumns, setKanbanColumns) => {
   if (!result.destination) {
-    return;
+    return; // O item foi descartado fora de todas as colunas
   }
-  if (result.combine) {
-    return;
-  }
-  // Cria uma cópia do estado atual
-  const updatedKanbanData = [...kanbanData];
 
-  // Encontra a coluna de origem
-  const sourceColumn = updatedKanbanData.find(
-    (column) => column.columnId === result.source.droppableId
+  const { source, destination } = result;
+
+  if (
+    source.droppableId === destination.droppableId &&
+    source.index === destination.index
+  ) {
+    return; // O item foi colocado de volta no mesmo local
+  }
+
+  const updatedKanbanColumns = kanbanColumns.map((column) => ({
+    ...column,
+    cards: [...column.cards], // Criar uma cópia do array de cartões
+  }));
+
+  const sourceColumnIndex = updatedKanbanColumns.findIndex(
+    (column) => column._id === source.droppableId
+  );
+  const destinationColumnIndex = updatedKanbanColumns.findIndex(
+    (column) => column._id === destination.droppableId
   );
 
-  // Remove o cartão da coluna de origem
-  const draggedCard = sourceColumn.cards.splice(result.source.index, 1)[0];
+  if (sourceColumnIndex === -1 || destinationColumnIndex === -1) {
+    console.error("Source or destination column not found.");
+    return;
+  }
 
-  // Encontra a coluna de destino
-  const destinationColumn = updatedKanbanData.find(
-    (column) => column.columnId === result.destination.droppableId
+  const movedCard = updatedKanbanColumns[sourceColumnIndex].cards[source.index];
+
+  if (!movedCard) {
+    console.error("Moved card not found.");
+    return;
+  }
+
+  // Remover da coluna de origem
+  updatedKanbanColumns[sourceColumnIndex].cards.splice(source.index, 1);
+
+  // Inserir na coluna de destino na posição correta
+  updatedKanbanColumns[destinationColumnIndex].cards.splice(
+    destination.index,
+    0,
+    movedCard
   );
 
-  // Insere o cartão na coluna de destino na posição correta
-  destinationColumn.cards.splice(result.destination.index, 0, draggedCard);
-
-  // Atualiza o estado com as mudanças
-  setKanbanData(updatedKanbanData);
+  setKanbanColumns(updatedKanbanColumns);
 };
 
 export default onDragEnd;

@@ -8,11 +8,11 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 import { CenteredModal } from "../../atoms/Modal.jsx";
 import DealForm from "../../molecules/Forms/DealForm/DealForm.jsx";
 
-const Kanban = ({ kanbanData }) => {
+const Kanban = ({ dealsData, kanbanColumns }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [dealTitle, setDealTitle] = useState("");
   const [contact, setContact] = useState("");
-  const [value, setDealValue] = useState("");
+  const [dealValue, setDealValue] = useState("");
   const [selectedStage, setSelectedStage] = useState("");
   const [dealDescription, setDealDescription] = useState("");
 
@@ -38,16 +38,19 @@ const Kanban = ({ kanbanData }) => {
           className="row flex-row flex-sm-nowrap mt-5 ps-3 pt-3"
           id="kanban-columns"
         >
-          {kanbanData &&
-            kanbanData.map((kanbanCol, columnIndex) => (
-              <KanbanCol kanbanCol={kanbanCol} key={kanbanCol.columnId}>
-                {kanbanCol.cards.map((kanbanCard, cardIndex) => (
-                  <KanbanCard
-                    kanbanCard={kanbanCard}
-                    key={kanbanCard.cardId}
-                    index={cardIndex}
-                  />
-                ))}
+          {kanbanColumns &&
+            kanbanColumns.map((kanbanCol, columnIndex) => (
+              <KanbanCol kanbanCol={kanbanCol} key={kanbanCol._id}>
+                {dealsData &&
+                  dealsData
+                    .filter((deal) => deal.selectedStage === kanbanCol._id)
+                    .map((deal, dealIndex) => (
+                      <KanbanCard
+                        deal={deal}
+                        key={dealIndex}
+                        dealIndex={dealIndex}
+                      />
+                    ))}
               </KanbanCol>
             ))}
         </div>
@@ -67,14 +70,18 @@ const Kanban = ({ kanbanData }) => {
           modalTitle={"Nova Oportunidade"}
         >
           <DealForm
+            handleShowModal={handleShowModal}
             dealTitle={dealTitle}
             setDealTitle={setDealTitle}
-            stages={kanbanData.map((kanbanCol, columnIndex) => kanbanCol.title)}
+            stages={
+              kanbanColumns &&
+              kanbanColumns.map((kanbanCol) => kanbanCol.columnTitle)
+            }
             selectedStage={selectedStage}
             setSelectedStage={setSelectedStage}
             contact={contact}
             setContact={setContact}
-            value={value}
+            dealValue={dealValue}
             setDealValue={setDealValue}
             dealDescription={dealDescription}
             setDealDescription={setDealDescription}

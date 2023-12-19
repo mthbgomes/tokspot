@@ -9,8 +9,10 @@ import "./DealForm.css";
 import Input from "../../../atoms/Input.jsx";
 import Button from "../../../atoms/Button.jsx";
 import handleSubmit from "../../../../handlers/handleFormSubmit";
+import config from "../../../../config.js";
 
 const DealForm = ({
+  handleShowModal,
   dealTitle,
   setDealTitle,
   stages,
@@ -33,7 +35,6 @@ const DealForm = ({
   const handleSave = (e) => {
     e.preventDefault();
     handleValidation();
-    console.log(formValid);
     if (formValid) {
       handleSubmit(
         {
@@ -43,10 +44,12 @@ const DealForm = ({
           dealValue,
           dealDescription,
         },
-        "http://localhost:3001/api/deal/create",
+        `${config.apiUrl}/deal/create`,
         "POST",
         (resData) => {
           console.log("Sucesso!");
+          handleShowModal();
+          window.location.reload();
         },
         (err) => {
           console.log("Erro!", err.message);

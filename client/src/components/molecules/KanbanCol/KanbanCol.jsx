@@ -9,21 +9,21 @@ const KanbanCol = ({ kanbanCol, columnIndex, children }) => {
     <div
       className="col-sm-4 col-md-4 col-xl-2 kanban-col ms-2 p-0"
       style={{ minWidth: "350px" }}
-      key={kanbanCol.columnId}
+      key={kanbanCol._id}
     >
       <div className="card kanban-wrapper">
         <h6 className="card-title fw-bold bg-secondary-color column-title">
-          {kanbanCol.title}
+          {kanbanCol.columnTitle}
         </h6>
         <Droppable
-          droppableId={kanbanCol.columnId}
-          key={kanbanCol.columnId}
+          droppableId={kanbanCol._id}
+          key={kanbanCol._id}
           index={columnIndex}
         >
           {(provided) => (
             <div
               className="card-body kanban-card-container overflow-y-auto overflow-x-hidden custom-scrollbar bg-secondary-color m-0 pb-0 pt-0"
-              id={kanbanCol.columnId}
+              id={kanbanCol._id}
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
@@ -34,7 +34,7 @@ const KanbanCol = ({ kanbanCol, columnIndex, children }) => {
           )}
         </Droppable>
         <p className="column-title bg-secondary-color">
-          Total: {kanbanCol.total}
+          Total: {kanbanCol.columnTotal}
         </p>
       </div>
     </div>

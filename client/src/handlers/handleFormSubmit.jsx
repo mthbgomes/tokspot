@@ -1,21 +1,20 @@
-const handleSubmit = async (data, endpoint, method, onSuccess, onError) => {
-  try {
-    const res = await fetch(endpoint, {
-      method: method,
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(data),
+import axios from "axios";
+
+const handleSubmit = (data, endpoint, method, onSuccess, onError) => {
+  axios({
+    method: method,
+    url: endpoint,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  })
+    .then((response) => {
+      onSuccess(response.data);
+    })
+    .catch((error) => {
+      onError(error);
     });
-    if (res.ok) {
-      const resData = await res.json();
-      onSuccess(resData);
-    } else {
-      throw new Error(`Erro na requisição: ${res.statusText}`);
-    }
-  } catch (err) {
-    onError(err);
-  }
 };
 
 export default handleSubmit;
