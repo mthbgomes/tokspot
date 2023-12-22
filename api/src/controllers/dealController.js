@@ -68,8 +68,24 @@ const deleteDeal = async (req, res) => {
   }
 };
 
+const updateDealSelectedStage = async (req, res) => {
+  const dealId = req.params.dealId;
+  const { selectedStage } = req.body;
+  try {
+    await Deal.findByIdAndUpdate(dealId, { selectedStage });
+    res.end();
+    console.log(
+      `Negócio ${dealId} atualizado com sucesso. Novo selectedStage: ${selectedStage}`
+    );
+  } catch (error) {
+    console.error(`Erro ao atualizar o negócio ${dealId}: ${error.message}`);
+    throw error;
+  }
+};
+
 export default {
   createDeal,
   getAllDeal,
-  deleteDeal, // Adicione a função deleteDeal ao export
+  deleteDeal,
+  updateDealSelectedStage,
 };
