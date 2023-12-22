@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #2992cc;
+  --secondary-color: #e9eef1;
+  --default-box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.bg-primary-color {
+  background-color: var(--primary-color);
+}
+
+.border-primary-color {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+
+
+.btn-primary-color, .btn-primary-color.btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 45px;
+  border: solid var(--primary-color) 1px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: 700;
+  width: 180px;
+  height: 45px;
+  border-radius: 22px;
+  cursor: pointer;
+}
+
+.btn-primary-color:hover {
+  border: none;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.bg-secondary-color {
+  background-color: var(--secondary-color);
+}
+
+.border-secondary-color {
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.btn-secondary-color {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 45px;
+  border: solid var(--secondary-color) 1px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-weight: 700;
+  width: 180px;
+  height: 45px;
+  border-radius: 22px;
+  cursor: pointer;
+}
+
+.btn-secondary-color:hover {
+  border: none;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.default-shadow {
+  box-shadow: var(--default-box-shadow);
+}
+
+.on-hover-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.on-hover-link:hover {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* Media Queries */
+@media screen and (max-width: 480px) {
+  .hero-title h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1rem;
+  }
+
+  .register-title {
+    font-size: 1rem;
+  }
+
+  .register-text {
+    font-size: 1rem;
+  }
+
+  .login-title {
+    font-size: 1rem;
+  }
+
+  .btn-primary-color,
+  .btn-secondary-color {
+    width: 80px !important;
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .hero-title h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .register-title {
+    font-size: 1.1rem;
+  }
+
+  .register-text {
+    font-size: 1.1rem;
+  }
+
+  .login-title {
+    font-size: 1.1rem;
+  }
+
+  .login-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .hero-title h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .register-title {
+    font-size: 1.2rem;
+  }
+
+  .register-text {
+    font-size: 1.2rem;
+  }
+
+  .login-title {
+    font-size: 1.2rem;
+  }
+
+  .login-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .hero-title h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .register-title {
+    font-size: 1.3rem;
+  }
+
+  .register-text {
+    font-size: 1.3rem;
+  }
+
+  .login-title {
+    font-size: 1.3rem;
+  }
+
+  .login-text {
+    font-size: 1rem;
+  }
+}
