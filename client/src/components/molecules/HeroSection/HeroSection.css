@@ -1,0 +1,16 @@
+.hero {
+    background-color: var(--secondary-color);
+}
+
+.hero-img {
+    width: 100%;
+}
+
+.hero-title h1 {
+    color: var(--primary-color);
+    font-size: 5rem;
+}
+
+.hero-text h2 {
+    font-size: 1.8rem;
+}
