@@ -12,10 +12,15 @@ const DealsContextProvider = ({ children }) => {
     "http://localhost:3001/api/kanbancolumn/list"
   );
 
+  const contextValue = {
+    dealsData,
+    setDealsData,
+    kanbanColumns,
+    setKanbanColumns,
+  };
+
   return (
-    <DealsContext.Provider
-      value={{ dealsData, setDealsData, kanbanColumns, setKanbanColumns }}
-    >
+    <DealsContext.Provider value={contextValue}>
       {children}
     </DealsContext.Provider>
   );

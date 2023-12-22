@@ -1,52 +1,38 @@
-const onDragEnd = (result, kanbanColumns, setKanbanColumns) => {
-  if (!result.destination) {
-    return; // O item foi descartado fora de todas as colunas
-  }
+import config from "../config";
+import axios from "axios";
 
-  const { source, destination } = result;
-
-  if (
-    source.droppableId === destination.droppableId &&
-    source.index === destination.index
-  ) {
-    return; // O item foi colocado de volta no mesmo local
-  }
-
-  const updatedKanbanColumns = kanbanColumns.map((column) => ({
-    ...column,
-    cards: [...column.cards], // Criar uma cópia do array de cartões
-  }));
-
-  const sourceColumnIndex = updatedKanbanColumns.findIndex(
-    (column) => column._id === source.droppableId
-  );
-  const destinationColumnIndex = updatedKanbanColumns.findIndex(
-    (column) => column._id === destination.droppableId
-  );
-
-  if (sourceColumnIndex === -1 || destinationColumnIndex === -1) {
-    console.error("Source or destination column not found.");
+const onDragEnd = async (result, dealsData) => {
+  // Verifica se houve uma queda em uma área de destino válida
+  if (!result.destination || result.combine) {
     return;
   }
 
-  const movedCard = updatedKanbanColumns[sourceColumnIndex].cards[source.index];
+  // Encontra o card de origem
+  const sourceDealIndex = dealsData.findIndex(
+    (deal) => deal._id === result.draggableId
+  );
 
-  if (!movedCard) {
-    console.error("Moved card not found.");
+  if (sourceDealIndex === -1) {
+    // Card de origem não encontrado, tratamento de erro ou retorno
     return;
   }
 
-  // Remover da coluna de origem
-  updatedKanbanColumns[sourceColumnIndex].cards.splice(source.index, 1);
+  // Remove o card de origem da lista
+  const draggedDeal = dealsData.splice(sourceDealIndex, 1)[0];
 
-  // Inserir na coluna de destino na posição correta
-  updatedKanbanColumns[destinationColumnIndex].cards.splice(
-    destination.index,
-    0,
-    movedCard
+  // Realiza a operação PUT no banco de dados para atualizar o selectedStage do card movido
+  await axios.put(
+    `${config.apiUrl}/deal/update/${draggedDeal._id}`,
+    {
+      selectedStage: result.destination.droppableId,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
   );
-
-  setKanbanColumns(updatedKanbanColumns);
+  window.location.reload();
 };
 
 export default onDragEnd;

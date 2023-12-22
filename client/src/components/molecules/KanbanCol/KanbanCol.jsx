@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../../../styles/global.css";
 import "./KanbanCol.css";
 
-const KanbanCol = ({ kanbanCol, columnIndex, children }) => {
+const KanbanCol = ({ kanbanCol, children }) => {
   return (
     <div
       className="col-sm-4 col-md-4 col-xl-2 kanban-col ms-2 p-0"
@@ -15,11 +15,7 @@ const KanbanCol = ({ kanbanCol, columnIndex, children }) => {
         <h6 className="card-title fw-bold bg-secondary-color column-title">
           {kanbanCol.columnTitle}
         </h6>
-        <Droppable
-          droppableId={kanbanCol._id}
-          key={kanbanCol._id}
-          index={columnIndex}
-        >
+        <Droppable droppableId={kanbanCol._id} key={kanbanCol._id}>
           {(provided) => (
             <div
               className="card-body kanban-card-container overflow-y-auto overflow-x-hidden custom-scrollbar bg-secondary-color m-0 pb-0 pt-0"

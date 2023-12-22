@@ -47,7 +47,7 @@ const Kanban = ({ dealsData, kanbanColumns }) => {
                     .map((deal, dealIndex) => (
                       <KanbanCard
                         deal={deal}
-                        key={dealIndex}
+                        key={deal._id}
                         dealIndex={dealIndex}
                       />
                     ))}

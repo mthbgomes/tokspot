@@ -8,10 +8,11 @@ import { DragDropContext } from "react-beautiful-dnd";
 
 export default function Oportunidades() {
   const { loggedInLinks } = useLinkContext();
-  const { dealsData, kanbanColumns, setKanbanColumns } = useDealsContext();
+  const { dealsData, kanbanColumns } = useDealsContext();
 
-  const handleDragEnd = (result) =>
-    onDragEnd(result, kanbanColumns, setKanbanColumns);
+  const handleDragEnd = (result) => {
+    onDragEnd(result, dealsData);
+  };
 
   return (
     <div>
